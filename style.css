@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #d4af37; /* Metallic Gold */
-  --secondary-color: #b08d28; /* Darker Gold */
-  --text-color: #ffffff; /* White text for dark mode */
-  --text-color-dark: #333333; /* Dark text for light areas */
-  --light-bg: #1a1a1a; /* Very dark grey instead of light bg */
-  --white: #0a0a0a; /* Almost black */
-  --dark-bg: #000000; /* Pure black */
+  --primary-color: #d4af37; /* Dorado metálico */
+  --secondary-color: #b08d28; /* Dorado más oscuro */
+  --text-color: #ffffff; /* Texto blanco para modo oscuro */
+  --text-color-dark: #333333; /* Texto oscuro */
+  --light-bg: #1a1a1a; /* Gris muy oscuro */
+  --white: #0a0a0a; /* Casi negro */
+  --dark-bg: #000000; /* Negro puro */
   --transition: all 0.3s ease;
 }
 
@@ -27,15 +27,11 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-.logo,
-.footer-logo {
+h1, h2, h3, .logo, .footer-logo {
   font-family: "Playfair Display", serif;
 }
 
-/* Typography */
+/* Tipografía */
 h1 {
   font-size: 4rem;
   font-weight: 700;
@@ -64,7 +60,7 @@ p {
   color: #cccccc;
 }
 
-/* Buttons */
+/* Botones */
 .btn {
   display: inline-block;
   padding: 14px 35px;
@@ -72,7 +68,7 @@ p {
   color: var(--dark-bg);
   text-decoration: none;
   font-weight: 600;
-  border-radius: 0; /* Sharp edges for premium look */
+  border-radius: 0; 
   border: 1px solid var(--primary-color);
   cursor: pointer;
   transition: var(--transition);
@@ -108,7 +104,7 @@ p {
   color: var(--dark-bg);
 }
 
-/* Navigation */
+/* Navegación */
 .navbar {
   position: fixed;
   top: 0;
@@ -179,12 +175,13 @@ p {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Sección Hero con Parallax */
 .hero {
   height: 100vh;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("hero-bg.png") no-repeat center center/cover;
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("reference1.png") no-repeat center center/cover;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,7 +201,7 @@ p {
   letter-spacing: 1px;
 }
 
-/* About Section */
+/* Sección Sobre el Cacay */
 .about {
   padding: 120px 5%;
   background-color: var(--white);
@@ -258,7 +255,7 @@ p {
   border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-/* Products Section */
+/* Sección Productos */
 .products {
   padding: 120px 5%;
   background-color: var(--dark-bg);
@@ -320,7 +317,7 @@ p {
   margin-bottom: 25px;
 }
 
-/* Contact Section */
+/* Sección Contacto */
 .contact {
   padding: 120px 5%;
   background-color: var(--light-bg);
@@ -401,7 +398,7 @@ footer {
   background-color: transparent;
   border: 1px solid #333;
   color: #888;
-  border-radius: 0; /* Sharp edges */
+  border-radius: 0;
   text-decoration: none;
   transition: var(--transition);
 }
@@ -412,13 +409,11 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Animations */
+/* Animaciones */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .fade-in.visible {
@@ -429,9 +424,7 @@ footer {
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .slide-in-left.visible {
@@ -442,9 +435,7 @@ footer {
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .slide-in-right.visible {
@@ -455,9 +446,7 @@ footer {
 .fade-up {
   opacity: 0;
   transform: translateY(50px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-up.visible {
@@ -473,7 +462,7 @@ footer {
   transition-delay: 0.4s;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
