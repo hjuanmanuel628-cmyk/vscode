@@ -121,6 +121,10 @@ p {
   transition: var(--transition);
 }
 
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
 .logo {
   font-size: 2.5rem;
   font-weight: 700;
@@ -180,7 +184,7 @@ p {
   height: 100vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("reference1.png") no-repeat center center/cover;
+    url("hero-bg.png") no-repeat center center/cover;
   background-attachment: fixed;
   display: flex;
   align-items: center;
@@ -282,7 +286,7 @@ p {
 
 .product-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
   border-color: rgba(212, 175, 55, 0.5);
 }
 

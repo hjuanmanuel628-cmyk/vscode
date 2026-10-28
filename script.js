@@ -28,16 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Efecto scroll en la barra de navegación
+    // 2. Efecto scroll en la barra de navegación y Parallax
     const navbar = document.querySelector('.navbar');
+    let lastScrollTop = 0;
     
     window.addEventListener('scroll', () => {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        // Smart Navbar
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            navbar.classList.add('hidden');
+        } else {
+            navbar.classList.remove('hidden');
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+        // Estilos de la barra
         if (window.scrollY > 50) {
             navbar.style.padding = '10px 5%';
             navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
         } else {
             navbar.style.padding = '20px 5%';
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+
+        // Parallax Effect
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.style.transform = `translateY(${window.scrollY * 0.4}px)`;
         }
     });
 
@@ -112,4 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 6. Set current year dynamically
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 });
