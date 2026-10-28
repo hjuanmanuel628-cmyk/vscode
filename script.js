@@ -16,17 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close menu when a link is clicked
+    // Cierra el menú al hacer clic en un enlace (móvil)
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
             const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            if(icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     });
 
-    // 2. Navbar Scroll Effect
+    // 2. Efecto scroll en la barra de navegación
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Scroll Animations using Intersection Observer
+    // 3. Animaciones al hacer scroll usando Intersection Observer
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -50,27 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Stop observing once animated if you only want it to happen once
-                // observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
 
-    // Elements to animate
+    // Elementos a animar
     const fadeElements = document.querySelectorAll('.fade-in, .fade-up, .slide-in-left, .slide-in-right');
     
     fadeElements.forEach(el => {
         observer.observe(el);
     });
 
-    // Trigger hero animations immediately on load
+    // Disparar animaciones de la sección hero al cargar
     setTimeout(() => {
         document.querySelectorAll('.hero .fade-in').forEach(el => {
             el.classList.add('visible');
         });
     }, 100);
 
-    // 4. Form Submission Handling (Prevent default for demo)
+    // 4. Manejo del formulario de contacto
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -79,33 +79,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = btn.textContent;
             
             btn.textContent = '¡Gracias por suscribirte!';
-            btn.style.backgroundColor = '#d4af37'; // Primary color (Gold)
-            btn.style.color = '#000';
+            btn.style.backgroundColor = 'var(--primary-color)';
+            btn.style.color = '#fff';
             
             contactForm.reset();
             
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.style.backgroundColor = ''; // Reset to CSS default
+                btn.style.backgroundColor = ''; 
                 btn.style.color = '';
             }, 3000);
         });
     }
 
-    // 5. Product Cards Interactive Effect
+    // 5. Efecto interactivo en las tarjetas de productos
     const productCards = document.querySelectorAll('.product-card');
     
     productCards.forEach(card => {
         const btn = card.querySelector('.btn-secondary');
         
         card.addEventListener('mouseenter', () => {
-            btn.style.backgroundColor = 'var(--primary-color)';
-            btn.style.color = 'var(--white)';
+            if(btn) {
+                btn.style.backgroundColor = 'var(--primary-color)';
+                btn.style.color = 'var(--white)';
+            }
         });
         
         card.addEventListener('mouseleave', () => {
-            btn.style.backgroundColor = 'transparent';
-            btn.style.color = 'var(--primary-color)';
+            if(btn) {
+                btn.style.backgroundColor = 'transparent';
+                btn.style.color = 'var(--primary-color)';
+            }
         });
     });
 });
