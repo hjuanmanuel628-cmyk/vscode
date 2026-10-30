@@ -1,155 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kaya - El Secreto del Cacay</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome para íconos -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">KAYA</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#about">Sobre el Cacay</a></li>
-          <li><a href="#products">Productos</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-      </nav>
-      <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurum - Gestión de Joyería</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
 
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1 class="fade-in">El poder del Cacay</h1>
-        <p class="fade-in delay-1">
-          Lujo natural y cuidado superior. Descubre los extraordinarios
-          beneficios de la nuez de Cacay amazónico.
-        </p>
-        <a href="#products" class="btn fade-in delay-2"
-          >Explorar la colección</a
-        >
-      </div>
-    </section>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                <h1>Aurum</h1>
+                <span>Gestión de Joyería</span>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-target="view-new-sale">
+                    <i class="fas fa-plus-circle"></i> <span>Nueva Venta</span>
+                </button>
+                <button class="tab-btn" data-target="view-history">
+                    <i class="fas fa-history"></i> <span>Historial</span>
+                </button>
+                <button class="tab-btn" data-target="view-reports">
+                    <i class="fas fa-chart-line"></i> <span>Reportes</span>
+                </button>
+            </nav>
+        </header>
 
-    <section id="about" class="about">
-      <div class="about-container">
-        <div class="about-text slide-in-left">
-          <h2>La Esencia Amazónica</h2>
-          <p>
-            El Cacay es un árbol originario de la Amazonía que produce una nuez
-            rica en nutrientes. Su aceite es un tesoro natural exclusivo, famoso
-            por sus excepcionales propiedades antienvejecimiento, hidratantes y
-            regeneradoras.
-          </p>
-          <p>
-            En <strong>Kaya</strong>, hemos perfeccionado la extracción para
-            preservar la pureza absoluta, creando productos de alto rendimiento
-            que respetan el medio ambiente y apoyan el comercio justo.
-          </p>
-          <ul>
-            <li>
-              <i class="fas fa-gem"></i> Extraído en frío para máxima pureza
-            </li>
-            <li>
-              <i class="fas fa-gem"></i> Alto en Vitamina E y Retinol natural
-            </li>
-            <li>
-              <i class="fas fa-gem"></i> Nutrición profunda de calidad premium
-            </li>
-          </ul>
-        </div>
-        <div class="about-image slide-in-right">
-          <img src="cacao-tree.jpg" alt="Cacay natural" />
-        </div>
-      </div>
-    </section>
+        <main>
+            <!-- Vista: Nueva Venta -->
+            <section id="view-new-sale" class="view active fade-in">
+                <div class="card form-card">
+                    <h2>Registrar Venta de Oro</h2>
+                    <p class="subtitle">Complete los detalles de la pieza vendida.</p>
 
-    <section id="products" class="products">
-      <h2>Colección Exclusiva</h2>
-      <div class="product-grid">
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="product1.jpg" alt="Cacay Amazon Origin Sérum" />
-          </div>
-          <div class="product-info">
-            <h3>Amazon Origin Sérum</h3>
-            <p>
-              Nuestro icónico sérum con puro extracto de Cacay. Nutre en
-              profundidad, ilumina la piel y combate los signos del envejecimiento.
-            </p>
-            <button class="btn-secondary">Descubrir</button>
-          </div>
-        </div>
-        <div class="product-card fade-up delay-1">
-          <div class="product-image">
-            <img src="product2.jpg" alt="Cacay Nut Exfoliant" />
-          </div>
-          <div class="product-info">
-            <h3>Nut Exfoliant</h3>
-            <p>
-              Exfoliante renovador a base de nuez de Cacay. Purifica, suaviza 
-              y revitaliza la textura de la piel para un acabado radiante.
-            </p>
-            <button class="btn-secondary">Descubrir</button>
-          </div>
-        </div>
-        <div class="product-card fade-up delay-2">
-          <div class="product-image">
-            <img src="reference1.png" alt="Cacay Active Shampoo" />
-          </div>
-          <div class="product-info">
-            <h3>Active Shampoo</h3>
-            <p>
-              Fórmula revitalizante con puro extracto de Cacay. Limpia
-              suavemente, fortalece la fibra capilar y restaura el brillo natural.
-            </p>
-            <button class="btn-secondary">Descubrir</button>
-          </div>
-        </div>
-      </div>
-    </section>
+                    <form id="sales-form">
+                        <div class="photo-upload-container">
+                            <label for="item-photo" class="photo-label">
+                                <i class="fas fa-camera"></i>
+                                <span>Tomar o Subir Foto</span>
+                                <input type="file" id="item-photo" accept="image/*" capture="environment" required>
+                            </label>
+                            <div id="image-preview-container" class="hidden">
+                                <img id="image-preview" src="" alt="Vista previa">
+                                <button type="button" id="remove-photo" class="btn-icon"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
 
-    <section id="contact" class="contact bottom-bg-section">
-      <div class="contact-container fade-in">
-        <h2>El Club Kaya</h2>
-        <p>
-          Únete a nuestra lista exclusiva para recibir lanzamientos anticipados,
-          consejos de cuidado premium y ofertas privadas.
-        </p>
-        <form id="contact-form">
-          <input type="text" placeholder="Nombre completo" required />
-          <input type="email" placeholder="Correo electrónico" required />
-          <button type="submit" class="btn">Suscribirme</button>
-        </form>
-      </div>
-    </section>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="item-name"><i class="fas fa-tag"></i> Descripción de la Prenda:</label>
+                                <input type="text" id="item-name" required placeholder="Ej. Cadena tejido Cartier">
+                            </div>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-logo">KAYA</div>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <p>&copy; <span id="current-year">2023</span> Kaya. Todos los derechos reservados.</p>
-      </div>
-    </footer>
+                            <div class="form-group">
+                                <label for="item-karat"><i class="fas fa-award"></i> Kilates:</label>
+                                <select id="item-karat" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="10k">10K</option>
+                                    <option value="14k">14K</option>
+                                    <option value="18k">18K</option>
+                                    <option value="22k">22K</option>
+                                    <option value="24k">24K</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="item-weight"><i class="fas fa-balance-scale"></i> Peso (gramos):</label>
+                                <input type="number" id="item-weight" min="0" step="0.01" required placeholder="Ej. 5.5">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cost-price"><i class="fas fa-dollar-sign"></i> Costo Total:</label>
+                                <input type="number" id="cost-price" min="0" step="0.01" required placeholder="Costo de inversión">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sale-price"><i class="fas fa-hand-holding-usd"></i> Precio de Venta:</label>
+                                <input type="number" id="sale-price" min="0" step="0.01" required placeholder="Precio cobrado al cliente">
+                            </div>
+
+                            <div class="form-group full-width date-group">
+                                <label for="sale-date"><i class="fas fa-calendar-alt"></i> Fecha de Venta:</label>
+                                <input type="date" id="sale-date" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-save"></i> Guardar Registro
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Vista: Historial -->
+            <section id="view-history" class="view">
+                <div class="view-header">
+                    <h2>Historial de Ventas</h2>
+                    <button id="clear-all" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i> Borrar Todo</button>
+                </div>
+
+                <div class="controls-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-history" placeholder="Buscar por descripción...">
+                    </div>
+                </div>
+
+                <div id="sales-list" class="sales-grid">
+                    <!-- Las ventas se inyectarán aquí -->
+                </div>
+
+                <div id="empty-history" class="empty-state hidden">
+                    <i class="fas fa-box-open"></i>
+                    <p>No hay ventas registradas aún.</p>
+                </div>
+            </section>
+
+            <!-- Vista: Reportes -->
+            <section id="view-reports" class="view">
+                <h2>Reportes Mensuales</h2>
+                <p class="subtitle">Análisis financiero por mes.</p>
+
+                <div id="reports-container" class="reports-grid">
+                    <!-- Los reportes mensuales se inyectarán aquí -->
+                </div>
+
+                <div id="empty-reports" class="empty-state hidden">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>No hay datos suficientes para generar reportes.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para ver imagen en grande -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
