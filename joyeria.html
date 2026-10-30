@@ -1,1 +1,360 @@
-750272f54b74d11087c91046f84fde3d947c989f
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Ventas de Joyería</title>
+  <style>
+    :root {
+      --primary: #c59b27;
+      --primary-hover: #b0881e;
+      --bg: #121316;
+      --card-bg: #1a1c22;
+      --text: #f0f2f5;
+      --text-muted: #9ba1ad;
+      --border: #2d3139;
+      --success: #2ecc71;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    input, select {
+      background-color: #232730;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+    }
+
+    .calculations-box {
+      background: #232730;
+      border: 1px dashed var(--primary);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    .calculations-box .metric-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .calculations-box .metric-val {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--success);
+      margin-top: 4px;
+    }
+
+    button.btn-save {
+      background-color: var(--primary);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button.btn-save:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .records-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .sales-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .sale-item {
+      background-color: #232730;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sale-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background-color: #121316;
+    }
+
+    .sale-details {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .sale-details strong {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .badge-profit {
+      display: inline-block;
+      align-self: flex-start;
+      background: rgba(46, 204, 113, 0.15);
+      color: var(--success);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .btn-delete {
+      background: transparent;
+      border: none;
+      color: #e74c3c;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 8px;
+      align-self: flex-end;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      .full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Registro de Ventas de Joyería</h1>
+
+    <div class="card">
+      <form id="jewelry-form">
+        <div class="form-group full-width">
+          <label for="item-name">Nombre de la Joya / Referencia</label>
+          <input type="text" id="item-name" placeholder="Ej. Cadena oro 18k barbada" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="item-photo">Fotografía de la pieza</label>
+          <input type="file" id="item-photo" accept="image/*" capture="environment">
+        </div>
+
+        <div class="form-group">
+          <label for="item-cost">Costo total ($)</label>
+          <input type="number" id="item-cost" min="0" step="any" placeholder="0" required>
+        </div>
+
+        <div class="form-group">
+          <label for="item-price">Precio de venta ($)</label>
+          <input type="number" id="item-price" min="0" step="any" placeholder="0" required>
+        </div>
+
+        <div class="full-width calculations-box">
+          <div>
+            <div class="metric-title">Ganancia Estimada</div>
+            <div class="metric-val" id="calc-profit">$0</div>
+          </div>
+          <div>
+            <div class="metric-title">Margen sobre Venta</div>
+            <div class="metric-val" id="calc-margin">0%</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-save full-width">Guardar Venta</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="records-header">
+        <h2>Historial de Ventas</h2>
+        <span id="sales-count" style="color: var(--text-muted); font-size: 0.9rem;">0 registros</span>
+      </div>
+      <div class="sales-grid" id="sales-container"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('jewelry-form');
+    const nameInput = document.getElementById('item-name');
+    const photoInput = document.getElementById('item-photo');
+    const costInput = document.getElementById('item-cost');
+    const priceInput = document.getElementById('item-price');
+    const profitEl = document.getElementById('calc-profit');
+    const marginEl = document.getElementById('calc-margin');
+    const salesContainer = document.getElementById('sales-container');
+    const countEl = document.getElementById('sales-count');
+
+    let base64Image = '';
+
+    function calculateMetrics() {
+      const cost = parseFloat(costInput.value) || 0;
+      const price = parseFloat(priceInput.value) || 0;
+      const profit = price - cost;
+      const margin = price > 0 ? ((profit / price) * 100).toFixed(1) : 0;
+
+      profitEl.textContent = `$${profit.toLocaleString()}`;
+      marginEl.textContent = `${margin}%`;
+    }
+
+    costInput.addEventListener('input', calculateMetrics);
+    priceInput.addEventListener('input', calculateMetrics);
+
+    photoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          base64Image = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        base64Image = '';
+      }
+    });
+
+    function getSales() {
+      return JSON.parse(localStorage.getItem('jewelry_sales') || '[]');
+    }
+
+    function saveSale(sale) {
+      const sales = getSales();
+      sales.unshift(sale);
+      localStorage.setItem('jewelry_sales', JSON.stringify(sales));
+    }
+
+    function deleteSale(id) {
+      let sales = getSales();
+      sales = sales.filter(item => item.id !== id);
+      localStorage.setItem('jewelry_sales', JSON.stringify(sales));
+      renderSales();
+    }
+
+    function renderSales() {
+      const sales = getSales();
+      salesContainer.innerHTML = '';
+      countEl.textContent = `${sales.length} registro${sales.length === 1 ? '' : 's'}`;
+
+      if (sales.length === 0) {
+        salesContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No hay ventas registradas aún.</p>';
+        return;
+      }
+
+      sales.forEach(sale => {
+        const profit = sale.price - sale.cost;
+        const margin = sale.price > 0 ? ((profit / sale.price) * 100).toFixed(1) : 0;
+
+        const card = document.createElement('div');
+        card.className = 'sale-item';
+        card.innerHTML = `
+          ${sale.image ? `<img src="${sale.image}" alt="${sale.name}">` : '<div style="height:120px; background:#1b1d22; display:flex; align-items:center; justify-content:center; color:#555; font-size:0.85rem;">Sin imagen</div>'}
+          <div class="sale-details">
+            <strong>${sale.name}</strong>
+            <span>Costo: $${Number(sale.cost).toLocaleString()}</span>
+            <span>Venta: $${Number(sale.price).toLocaleString()}</span>
+            <span class="badge-profit">+$${profit.toLocaleString()} (${margin}%)</span>
+            <button class="btn-delete" onclick="deleteSale('${sale.id}')">Eliminar</button>
+          </div>
+        `;
+        salesContainer.appendChild(card);
+      });
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const newSale = {
+        id: Date.now().toString(),
+        name: nameInput.value.trim(),
+        cost: parseFloat(costInput.value) || 0,
+        price: parseFloat(priceInput.value) || 0,
+        image: base64Image,
+        date: new Date().toLocaleDateString()
+      };
+
+      saveSale(newSale);
+      form.reset();
+      base64Image = '';
+      calculateMetrics();
+      renderSales();
+    });
+
+    renderSales();
+  </script>
+</body>
+</html>
