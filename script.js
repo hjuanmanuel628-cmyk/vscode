@@ -110,25 +110,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Efecto interactivo en las tarjetas de productos
+    // 5. Efecto interactivo en las tarjetas de productos (Mostrar detalles)
     const productCards = document.querySelectorAll('.product-card');
     
     productCards.forEach(card => {
-        const btn = card.querySelector('.btn-secondary');
+        const btnMoreInfo = card.querySelector('.btn-more-info');
+        const btnCloseDetails = card.querySelector('.btn-close-details');
         
+        // Efecto hover en el botón original
         card.addEventListener('mouseenter', () => {
-            if(btn) {
-                btn.style.backgroundColor = 'var(--primary-color)';
-                btn.style.color = 'var(--white)';
+            if(btnMoreInfo && !card.classList.contains('show-details')) {
+                btnMoreInfo.style.backgroundColor = 'var(--primary-color)';
+                btnMoreInfo.style.color = 'var(--white)';
             }
         });
         
         card.addEventListener('mouseleave', () => {
-            if(btn) {
-                btn.style.backgroundColor = 'transparent';
-                btn.style.color = 'var(--primary-color)';
+            if(btnMoreInfo) {
+                btnMoreInfo.style.backgroundColor = 'transparent';
+                btnMoreInfo.style.color = 'var(--primary-color)';
             }
         });
+
+        // Eventos para mostrar/ocultar detalles
+        if (btnMoreInfo) {
+            btnMoreInfo.addEventListener('click', (e) => {
+                e.preventDefault();
+                card.classList.add('show-details');
+            });
+        }
+
+        if (btnCloseDetails) {
+            btnCloseDetails.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                card.classList.remove('show-details');
+            });
+        }
     });
 
     // 6. Set current year dynamically

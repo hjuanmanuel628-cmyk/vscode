@@ -311,6 +311,83 @@ p {
   transform: scale(1.05);
 }
 
+/* Overlay de detalles del producto */
+.product-details-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.95);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.product-card.show-details .product-details-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.details-content h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.details-content ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.details-content ul li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.details-content ul li::before {
+  content: "\f00c"; /* FontAwesome check */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+.details-content p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.btn-close-details {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.btn-close-details:hover {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+}
+
 .product-info {
   padding: 40px 30px;
 }
