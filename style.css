@@ -607,3 +607,17 @@ footer {
     width: 100%;
   }
 }
+
+/* Botón de navegación */
+.nav-btn {
+  background-color: var(--primary-color);
+  color: var(--white) !important;
+  padding: 8px 15px !important;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
