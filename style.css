@@ -34,8 +34,8 @@ h1, h2, h3, .logo, .footer-logo {
 /* Logos de las esquinas */
 .corner-logo {
   position: fixed;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   z-index: 2000;
@@ -53,9 +53,19 @@ h1, h2, h3, .logo, .footer-logo {
   left: 20px;
 }
 
+.top-right {
+  top: 20px;
+  right: 20px;
+}
+
 .bottom-left {
   bottom: 20px;
   left: 20px;
+}
+
+.bottom-right {
+  bottom: 20px;
+  right: 20px;
 }
 
 /* Tipografía */
@@ -608,16 +618,195 @@ footer {
   }
 }
 
-/* Botón de navegación */
-.nav-btn {
-  background-color: var(--primary-color);
-  color: var(--white) !important;
-  padding: 8px 15px !important;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+/* ====== ESTILOS PREMIUM PARA LA PRESENTACIÓN ====== */
+.presentation-body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
 }
 
-.nav-btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
+.presentation-container {
+  padding: 120px 5% 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.presentation-header {
+  margin-bottom: 60px;
+}
+
+.title-main {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.subtitle-main {
+  font-size: 1.5rem;
+  color: #ccc;
+  font-weight: 300;
+}
+
+.presentation-section {
+  margin-bottom: 60px;
+  background-color: var(--light-bg);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.intro-box p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #eee;
+}
+
+.intro-box strong {
+  color: var(--primary-color);
+}
+
+.matrix-article {
+  margin-bottom: 40px;
+}
+
+.matrix-article h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.matrix-article h3::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Tablas Premium */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 1rem;
+  color: #ddd;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.styled-table thead tr, .styled-table th {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: var(--primary-color);
+  text-align: left;
+  font-weight: 600;
+  padding: 15px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.styled-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.styled-table td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+.matrix-table td ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.matrix-table td ul li {
+  margin-bottom: 8px;
+}
+
+.table-narrow {
+  max-width: 600px;
+  margin: 15px auto;
+}
+
+.row-highlight {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.row-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #fff;
+}
+
+.row-gold {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.text-gold { color: var(--primary-color); }
+
+.final-section {
+  background: linear-gradient(145deg, var(--light-bg), var(--dark-bg));
+  border-color: var(--primary-color);
+}
+
+.value-prop-text {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: #ddd;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.value-prop-text strong {
+  color: var(--primary-color);
+  font-style: normal;
+}
+
+/* Responsividad Tablas */
+@media (max-width: 768px) {
+  .title-main { font-size: 2rem; }
+  .styled-table, .styled-table tbody, .styled-table tr, .styled-table td, .styled-table th {
+    display: block;
+    width: 100%;
+  }
+  .styled-table thead { display: none; }
+  .styled-table tr { margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; }
+  .styled-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .styled-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  .table-narrow td { text-align: right; padding-left: 15px; }
+  .matrix-table th { display: block; text-align: center; }
 }
