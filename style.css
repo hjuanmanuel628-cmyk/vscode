@@ -638,7 +638,11 @@ footer {
 /* ====== ESTILOS PREMIUM PARA LA PRESENTACIÓN ====== */
 .presentation-body {
   background-color: var(--mint-bg);
-  color: var(--mint-text);
+  background-image: linear-gradient(rgba(10, 25, 20, 0.8), rgba(10, 25, 20, 0.9)), url('presentacion-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-light);
 }
 
 .presentation-container {
