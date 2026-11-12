@@ -38,8 +38,8 @@ h1, h2, h3, .logo, .footer-logo {
 /* Logos de las esquinas */
 .corner-logo {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   z-index: 2000;
@@ -57,19 +57,9 @@ h1, h2, h3, .logo, .footer-logo {
   left: 20px;
 }
 
-.top-right {
-  top: 20px;
-  right: 20px;
-}
-
 .bottom-left {
   bottom: 20px;
   left: 20px;
-}
-
-.bottom-right {
-  bottom: 20px;
-  right: 20px;
 }
 
 /* Tipografía */
@@ -293,9 +283,32 @@ p {
 }
 
 /* Sección Productos */
+.products-bg {
+  position: relative;
+  background-image: url('products-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.products-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.85); /* Dark overlay to match theme */
+  z-index: 1;
+}
+
+.products-content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
 .products {
   padding: 120px 5%;
-  background-color: var(--dark-bg);
+  background-color: transparent;
 }
 
 .product-grid {
