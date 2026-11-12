@@ -6,6 +6,10 @@
   --light-bg: #1a1a1a; /* Gris muy oscuro */
   --white: #0a0a0a; /* Casi negro */
   --dark-bg: #000000; /* Negro puro */
+  --mint-bg: #e6f7ec; /* Fondo menta claro */
+  --mint-light-bg: #f4fbf6; /* Fondo menta más claro para secciones */
+  --mint-dark-bg: #d0eedb; /* Fondo menta oscuro para highlights */
+  --mint-text: #2c4c3b; /* Texto verde oscuro */
   --transition: all 0.3s ease;
 }
 
@@ -34,8 +38,8 @@ h1, h2, h3, .logo, .footer-logo {
 /* Logos de las esquinas */
 .corner-logo {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   z-index: 2000;
@@ -53,19 +57,9 @@ h1, h2, h3, .logo, .footer-logo {
   left: 20px;
 }
 
-.top-right {
-  top: 20px;
-  right: 20px;
-}
-
 .bottom-left {
   bottom: 20px;
   left: 20px;
-}
-
-.bottom-right {
-  bottom: 20px;
-  right: 20px;
 }
 
 /* Tipografía */
@@ -289,9 +283,32 @@ p {
 }
 
 /* Sección Productos */
+.products-bg {
+  position: relative;
+  background-image: url('products-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.products-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.85); /* Dark overlay to match theme */
+  z-index: 1;
+}
+
+.products-content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
 .products {
   padding: 120px 5%;
-  background-color: var(--dark-bg);
+  background-color: transparent;
 }
 
 .product-grid {
@@ -620,8 +637,8 @@ footer {
 
 /* ====== ESTILOS PREMIUM PARA LA PRESENTACIÓN ====== */
 .presentation-body {
-  background-color: var(--dark-bg);
-  color: var(--text-color);
+  background-color: var(--mint-bg);
+  color: var(--mint-text);
 }
 
 .presentation-container {
@@ -642,17 +659,17 @@ footer {
 
 .subtitle-main {
   font-size: 1.5rem;
-  color: #ccc;
+  color: #557b64;
   font-weight: 300;
 }
 
 .presentation-section {
   margin-bottom: 60px;
-  background-color: var(--light-bg);
+  background-color: var(--mint-light-bg);
   padding: 40px;
   border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 30px rgba(44, 76, 59, 0.1);
 }
 
 .section-title {
@@ -666,7 +683,7 @@ footer {
 .intro-box p {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #eee;
+  color: var(--mint-text);
 }
 
 .intro-box strong {
@@ -678,7 +695,7 @@ footer {
 }
 
 .matrix-article h3 {
-  color: #fff;
+  color: var(--mint-text);
   font-size: 1.4rem;
   margin-bottom: 15px;
   display: flex;
@@ -701,29 +718,29 @@ footer {
   border-collapse: collapse;
   margin: 15px 0;
   font-size: 1rem;
-  color: #ddd;
-  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--mint-text);
+  background-color: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(44, 76, 59, 0.05);
 }
 
 .styled-table thead tr, .styled-table th {
-  background-color: rgba(212, 175, 55, 0.15);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #fff;
   text-align: left;
   font-weight: 600;
   padding: 15px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.5);
 }
 
 .styled-table tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(44, 76, 59, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .styled-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--mint-light-bg);
 }
 
 .styled-table td {
@@ -746,12 +763,12 @@ footer {
 }
 
 .row-highlight {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--mint-dark-bg);
 }
 
 .row-success {
   background-color: rgba(40, 167, 69, 0.1);
-  color: #fff;
+  color: var(--mint-text);
 }
 
 .row-gold {
@@ -765,7 +782,7 @@ footer {
 .text-gold { color: var(--primary-color); }
 
 .final-section {
-  background: linear-gradient(145deg, var(--light-bg), var(--dark-bg));
+  background: linear-gradient(145deg, var(--mint-light-bg), var(--mint-bg));
   border-color: var(--primary-color);
 }
 
@@ -773,7 +790,7 @@ footer {
   font-size: 1.4rem;
   line-height: 1.8;
   font-style: italic;
-  color: #ddd;
+  color: var(--mint-text);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -791,7 +808,7 @@ footer {
     width: 100%;
   }
   .styled-table thead { display: none; }
-  .styled-table tr { margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; }
+  .styled-table tr { margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; }
   .styled-table td {
     text-align: right;
     padding-left: 50%;
